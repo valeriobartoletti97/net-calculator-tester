@@ -1,3 +1,4 @@
+using net_calculator_tester;
 namespace net_calculator_tester_test
 {
     public class Tests
@@ -8,9 +9,13 @@ namespace net_calculator_tester_test
         }
 
         [Test]
-        public void Test1()
+        [TestCase(1.3f , 1.7f)]
+        [TestCase(-1.3f, -1.7f)]
+        [TestCase(1.3f, -1.7f)]
+        public void TestAdd(float num1, float num2)
         {
-            Assert.Pass();
+            var result = num1 + num2;
+            Assert.AreEqual(Calculator.Add(num1, num2),result);
         }
     }
 }
